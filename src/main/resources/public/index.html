@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alquiler de Bicicletas</title>
+</head>
+
+<body>
+<h1>SPRINT 3</h1>
+
+<h2>BICICLETAS !</h2>
+<form>
+    <input type="number" id="idBici" placeholder="Ingrese ID"/>
+    <br>
+    <br>
+    <input type="text" id="brandBici" placeholder="Ingrese la marca"/>
+    <br>
+    <br>
+    <input type="number" id="modelBici" placeholder="Ingrese el modelo"/>
+    <br>
+    <br>
+    <input type="number" id="categoryBici" placeholder="Ingrese la categoría"/>
+    <br>
+    <br>
+    <input type="text" id="nameBici" placeholder="Ingrese el nombre"/>
+    <br>
+    <br>
+    <input type="text" id="descriptionBike" placeholder="Ingrese la descripción"/>
+</form>
+<br>
+<button onclick="guardarInformacion()">Guardar</button>
+<!--<button onclick="editarInformacion()">Actualizar</button> -->
+<button id="consultarBici" onclick="traerInformacion()">Consultar</button>
+<br>
+<br>
+<div id="listaBicis"></div>
+
+<h2>CATEGORIAS !</h2>
+<!-- Aqui empieza a programar Norman -->
+
+<h2>CLIENTES !</h2>
+<form>
+    <input type="number" id="idCli" placeholder="Ingrese ID">
+    <br>
+    <br>
+    <input type="text" id="nameCli" placeholder="Ingrese el nombre">
+    <br>
+    <br>
+    <input type="text" id="emailCli" placeholder="Ingrese el correo">
+    <br>
+    <br>
+    <input type="number" id="ageCli" placeholder="Ingrese la edad">
+</form>
+<br>
+<button onclick="enviarCliente()">Guardar</button>
+<button onclick="actualizarCliente()">Actualizar</button>
+<button onclick="buscarCliente()">Buscar</button>
+<button id="consultarCli" onclick="obtenerCliente()">Consultar</button>
+<br>
+<br>
+<div id="listaClientes"></div>
+
+<h2>MENSAJES !</h2>
+<textarea name="mensaje" id="mensaje" cols="60" rows="8" placeholder="Dejar un mensaje..." style="resize: none" required></textarea>
+<br>
+<br>
+<button id="enviarMensaje" onclick="guardarMensaje()">Guardar</button>
+<button id="listarMensajes" onclick="leerMensajes()">Consultar</button>
+<br>
+<br>
+<table id="listaMensajes" style="border: 1px solid black"></table>
+<br>
+<br>
+
+<h2>RESERVAS !</h2>
+<!-- Aqui empieza a programar Miguel -->
+
+<h2>USUARIOS ADMINISTRATIVOS !</h2>
+<form>
+    <input type="text" id="nombreUsuarioAdmo" placeholder="Ingrese su nombre"/>
+    <br>
+    <br>
+    <input type="email" id="emailUsuarioAdmo" placeholder="Ingrese su correo electrónico"/>
+    <br>
+    <br>
+    <input type="password" id="passwordUsuarioAdmo" placeholder="Ingrese su contraseña"/>
+</form>
+<br>
+<button onclick="guardarAdmoUser()">Guardar</button>
+<!-- <button onclick="editarAdmoUser()">Actualizar</button>-->
+<button id="consultarAdmoUser" onclick="getAdmoUser()">Consultar</button>
+<br>
+<br>
+<div id="listaAdmoUser"></div>
+
+<script src="js/bicicletas.js"></script>
+<script src="js/cliente.js"></script>
+<script src="js/mensaje.js"></script>
+<script src="js/admoUser.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</body>
+
+</html>
