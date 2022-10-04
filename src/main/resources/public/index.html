@@ -40,6 +40,24 @@
 <h2>CATEGORIAS !</h2>
 <!-- Aqui empieza a programar Norman -->
 
+<form>
+    <input type="number" id="idCat" placeholder="Ingrese ID">
+    <br>
+    <br>
+    <input type="text" id="nameCat" placeholder="Ingrese el nombre">
+    <br>
+    <br>
+    <textarea name="descripcion" id="descripcion" cols="25" rows="6" placeholder="Ingresar descripcion..." style="resize: none" required></textarea><br>
+</form>
+<br>
+<button onclick="enviarCategoria()">Guardar</button>
+<!--<button onclick="actualizarCategoria()">Actualizar</button>
+<button onclick="buscarCategoria()">Buscar</button>     -->
+<button id="consultarCat" onclick="obtenerCategoria()">Consultar</button>
+<br>
+<br>
+<div id="listaCategoria"></div>
+
 <h2>CLIENTES !</h2>
 <form>
     <input type="number" id="idCli" placeholder="Ingrese ID">
@@ -52,11 +70,14 @@
     <br>
     <br>
     <input type="number" id="ageCli" placeholder="Ingrese la edad">
+    <br>
+    <br>
+    <input type="text" id="pasCli" placeholder="Ingrese el password">
 </form>
 <br>
 <button onclick="enviarCliente()">Guardar</button>
-<button onclick="actualizarCliente()">Actualizar</button>
-<button onclick="buscarCliente()">Buscar</button>
+<!--<button onclick="actualizarCliente()">Actualizar</button>
+<button onclick="buscarCliente()">Buscar</button>       -->
 <button id="consultarCli" onclick="obtenerCliente()">Consultar</button>
 <br>
 <br>
