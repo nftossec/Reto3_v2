@@ -1,35 +1,36 @@
-const BASE_URL_MSG = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/message/message';
-let countID;
+const BASE_URL_MSG = 'http://localhost:8080/api/Message';
+console.log("Holaaa");
 
 function leerMensajes(){
     $.ajax({
-        url: BASE_URL_MSG,
+        url: `${BASE_URL_MSG}/all`,
         type: 'GET',
         dataType: 'JSON',
         success: (res)=>{
-            let mensajes = res.items;
+            console.log(res);
+            let mensajes = res;
 
             $('#listaMensajes').empty();
             $('#listaMensajes').append(
-                `<thead>
-          <th>ID</th>
-          <th>Mensaje</th>
-        </thead>
-        <tbody></tbody>`
+                `<table id="tablaMensajes" style="border: 1px solid black">
+                    <thead>
+                        <th>Cliente</th>
+                        <th>Bicicleta</th>
+                        <th>Mensaje</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>`
             )
 
             for(let i=0; i<mensajes.length; i++){
-                $('#listaMensajes tbody').append(
+                $('#tablaMensajes tbody').append(
                     `<tr>
-            <th>${mensajes[i].id}</th>
-            <td>${mensajes[i].messagetext}</td>
-            <td><button onclick="formEditar(${mensajes[i].id}, '${mensajes[i].messagetext}')">Editar</button></td>
-            <td><button onclick="borrarMensaje(${mensajes[i].id})">Borrar</button></td>
-          </tr>`
+                        <th>${mensajes[i].client.name}</th>
+                        <th>${mensajes[i].bike.name}</th>
+                        <td>${mensajes[i].messageText}</td>
+                    </tr>`
                 )
             }
-
-            countID = mensajes.length;
         },
         error: (err)=>{
             alert(`Error: Status ${err.status}`)
@@ -67,13 +68,13 @@ function guardarMensaje(){
     })
 }
 
-function formEditar(idMsg, msg){
+/*function formEditar(idMsg, msg){
     $('#mensaje').val(msg);
     $('#enviarMensaje').attr('onclick', `editarMensaje(${idMsg})`)
     $('#enviarMensaje').text('Actualizar')
-}
+}*/
 
-function editarMensaje(idMsg){
+/*function editarMensaje(idMsg){
     $.ajax({
         url: BASE_URL_MSG,
         type: 'PUT',
@@ -93,9 +94,9 @@ function editarMensaje(idMsg){
             leerMensajes();
         }
     })
-}
+}*/
 
-function borrarMensaje(idMsg){
+/*function borrarMensaje(idMsg){
     $.ajax({
         url: BASE_URL_MSG,
         type: 'DELETE',
@@ -109,7 +110,7 @@ function borrarMensaje(idMsg){
         },
         complete: ()=>leerMensajes()
     })
-}
+}*/
 
 function limpiar(){
     $('#mensaje').val("");
