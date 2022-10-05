@@ -2,12 +2,12 @@ const BASE_URL_BIKE = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecl
 
 function traerInformacion(){
     $.ajax({
-        url:BASE_URL_BIKE,
+        url:'http://localhost:8080/api/Bike/all',
         type:"GET",
         dataType:"JSON",
         success: function(respuesta){
             console.log(respuesta);
-            pintarRespuesta(respuesta.items);
+            pintarRespuesta(respuesta);
         }
     })
 }
@@ -23,15 +23,15 @@ function pintarRespuesta(items){
             <th>Modelo</th>
             <th>Categoria</th>
             <th>Nombre</th>
-            <th>Descripción</th>
+            <th>Descripcion</th>
         </thead>
         <tbody>`;
 
     for (let i=0; i<items.length;i++){
         myTable+="<tr>";
         myTable+="<td>"+items[i].brand+"</td>";
-        myTable+="<td>"+items[i].model+"</td>";
-        myTable+="<td>"+items[i].category_id+"</td>";
+        myTable+="<td>"+items[i].year+"</td>";
+        myTable+="<td>"+items[i].category.name+"</td>";
         myTable+="<td>"+items[i].name+"</td>";
         myTable+="<td>"+items[i].description+"</td>";
         //myTable+="<td> <button onclick='borrarElemento("+items[i].id+")'>Borrar</button>";
@@ -50,17 +50,17 @@ function ocultarRespuesta(){
 
 function guardarInformacion(){
     let myData={
-        id:$("#idBici").val(),
         brand:$("#brandBici").val(),
-        model:$("#modelBici").val(),
-        category_id:$("#categoryBici").val(),
-        name:$("#nameBici").val()
+        year:$("#modelBici").val(),
+        category:{id:$("#categoryBici").val()},
+        name:$("#nameBici").val(),
+        description:$("#descriptionBike").val()
     };
 
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE,
+        url:'http://localhost:8080/api/Bike/save',
         type:"POST",
         data:dataToSend,
         contentType: 'application/json',

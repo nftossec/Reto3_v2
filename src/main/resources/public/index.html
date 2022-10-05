@@ -10,42 +10,32 @@
   <body>
     <h1>SPRINT 3</h1>
 
-    <!-- Entidad de Wendy !-->
     <h2>BICICLETAS !</h2>
     <form>
-      <input type="number" idReservation="idBici" placeholder="Ingrese ID" />
-      <input type="text" idReservation="brandBici" placeholder="Ingrese la marca" />
-      <input type="number" idReservation="modelBici" placeholder="Ingrese el modelo" />
-      <input
-        type="number"
-        idReservation="categoryBici"
-        placeholder="Ingrese la categoría"
-      />
-      <input type="text" idReservation="nameBici" placeholder="Ingrese el nombre" />
-      <input
-        type="text"
-        idReservation="descriptionBike"
-        placeholder="Ingrese la descripción"
-      />
+      <input type="text" id="brandBici" placeholder="Ingrese la marca" />
+      <input type="text" id="modelBici" placeholder="Ingrese el modelo" />
+      <input type="text" id="categoryBici" placeholder="Ingrese la categoría"/>
+      <input type="text" id="nameBici" placeholder="Ingrese el nombre"/>
+      <input type="text" id="descriptionBike" placeholder="Ingrese la descripción"/>
     </form>
     <br />
     <button onclick="guardarInformacion()">Guardar</button>
     <!--<button onclick="editarInformacion()">Actualizar</button> -->
-    <button idReservation="consultarBici" onclick="traerInformacion()">Consultar</button>
+    <button id="consultarBici" onclick="traerInformacion()">Consultar</button>
     <br />
     <br />
-    <div idReservation="listaBicis"></div>
+    <div id="listaBicis"></div>
 
-    <!-- Entidad de Norman !-->
+
     <h2>CATEGORIAS !</h2>
     <form>
-      <input type="number" idReservation="idCat" placeholder="Ingrese ID" />
-      <input type="text" idReservation="nameCat" placeholder="Ingrese el nombre" />
+      <input type="number" id="idCat" placeholder="Ingrese ID" />
+      <input type="text" id="nameCat" placeholder="Ingrese el nombre" />
       <br />
       <br />
       <textarea
         name="descripcion"
-        idReservation="descripcion"
+        id="descripcion"
         cols="25"
         rows="6"
         placeholder="Ingresar descripcion..."
@@ -57,30 +47,29 @@
     <button onclick="enviarCategoria()">Guardar</button>
     <!--<button onclick="actualizarCategoria()">Actualizar</button>
     <button onclick="buscarCategoria()">Buscar</button>     -->
-    <button idReservation="consultarCat" onclick="obtenerCategoria()">Consultar</button>
+    <button id="consultarCat" onclick="obtenerCategoria()">Consultar</button>
     <br />
     <br />
-    <div idReservation="listaCategoria"></div>
+    <div id="listaCategoria"></div>
 
-    <!-- Entidad de Norman !-->
     <h2>CLIENTES !</h2>
     <form>
-      <input type="number" idReservation="idCli" placeholder="Ingrese ID" />
-      <input type="text" idReservation="nameCli" placeholder="Ingrese el nombre" />
-      <input type="text" idReservation="emailCli" placeholder="Ingrese el correo" />
-      <input type="number" idReservation="ageCli" placeholder="Ingrese la edad" />
-      <input type="text" idReservation="pasCli" placeholder="Ingrese el password" />
+      <input type="number" id="idCli" placeholder="Ingrese ID" />
+      <input type="text" id="nameCli" placeholder="Ingrese el nombre" />
+      <input type="text" id="emailCli" placeholder="Ingrese el correo" />
+      <input type="number" id="ageCli" placeholder="Ingrese la edad" />
+      <input type="text" id="pasCli" placeholder="Ingrese el password" />
     </form>
     <br />
     <button onclick="enviarCliente()">Guardar</button>
     <!--<button onclick="actualizarCliente()">Actualizar</button>
     <button onclick="buscarCliente()">Buscar</button>-->
-    <button idReservation="consultarCli" onclick="obtenerCliente()">Consultar</button>
+    <button id="consultarCli" onclick="obtenerCliente()">Consultar</button>
     <br />
     <br />
-    <div idReservation="listaClientes"></div>
+    <div id="listaClientes"></div>
 
-    <!-- Entidad de Miguel !-->
+
     <h2>MENSAJES !</h2>
     <input type="number" name="clientId-message" id="clientId-message" placeholder="ID del cliente">
 
@@ -89,7 +78,7 @@
     <br />
     <textarea
       name="mensaje"
-      idReservation="mensaje"
+      id="mensaje"
       cols="25"
       rows="6"
       placeholder="Ingresar mensaje..."
@@ -98,15 +87,15 @@
     ></textarea>
     <br />
     <br />
-    <button idReservation="enviarMensaje" onclick="guardarMensaje()">Guardar</button>
-    <button idReservation="listarMensajes" onclick="leerMensajes()">Consultar</button>
+    <button id="enviarMensaje" onclick="guardarMensaje()">Guardar</button>
+    <button id="listarMensajes" onclick="leerMensajes()">Consultar</button>
     <br />
     <br />
-    <table idReservation="listaMensajes" style="border: 1px solid black"></table>
+    <table id="listaMensajes" style="border: 1px solid black"></table>
     <br />
     <br />
 
-    <!-- Entidad de Miguel !-->
+
     <h2>RESERVAS !</h2>
     <form>
       <input type="number" name="clientId-reservation" id="clientId-reservation" placeholder="ID del cliente">
@@ -126,37 +115,36 @@
     <br />
     <br />
 
-    <!-- Entidad de Wendy !-->
     <h2>USUARIOS ADMINISTRATIVOS !</h2>
     <form>
       <input
         type="text"
-        idReservation="nombreUsuarioAdmo"
+        id="nombreUsuarioAdmo"
         placeholder="Ingrese su nombre"
       />
       <input
         type="email"
-        idReservation="emailUsuarioAdmo"
+        id="emailUsuarioAdmo"
         placeholder="Ingrese su correo electrónico"
       />
       <input
         type="password"
-        idReservation="passwordUsuarioAdmo"
+        id="passwordUsuarioAdmo"
         placeholder="Ingrese su contraseña"
       />
     </form>
     <br />
     <button onclick="guardarAdmoUser()">Guardar</button>
     <!-- <button onclick="editarAdmoUser()">Actualizar</button>-->
-    <button idReservation="consultarAdmoUser" onclick="getAdmoUser()">Consultar</button>
+    <button id="consultarAdmoUser" onclick="getAdmoUser()">Consultar</button>
     <br />
     <br />
-    <div idReservation="listaAdmoUser"></div>
+    <div id="listaAdmoUser"></div>
 
-    <script src="js/bicicletas.js"></script>
-    <script src="js/cliente.js"></script>
-    <script src="js/mensaje.js"></script>
-    <script src="js/admoUser.js"></script>
+    <script src="js/bike.js"></script>
+    <script src="js/client.js"></script>
+    <script src="js/message.js"></script>
+    <script src="js/userAdmin.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
 </html>
