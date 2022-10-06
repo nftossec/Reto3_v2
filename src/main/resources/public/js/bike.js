@@ -14,7 +14,7 @@ function traerInformacion(){
 
 function pintarRespuesta(items){
     $('#consultarBici').text('Ocultar');
-    $('#consultarBici').attr('onclick', 'ocultarRespuesta()');
+    $('#consultarBici').attr('onclick', 'ocultarRespuestaBike()');
 
     let myTable=
         `<table style="border: 1px solid black">
@@ -42,7 +42,7 @@ function pintarRespuesta(items){
     $("#listaBicis").append(myTable);
 }
 
-function ocultarRespuesta(){
+function ocultarRespuestaBike(){
     $('#consultarBici').text('Consultar');
     $('#consultarBici').attr('onclick', 'traerInformacion()');
     $("#listaBicis").empty();
@@ -77,7 +77,7 @@ function guardarInformacion(){
     });
 }
 
-/**
+/*
  *
 
  function editarInformacion(){

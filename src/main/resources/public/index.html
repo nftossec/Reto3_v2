@@ -29,35 +29,25 @@
 
     <h2>CATEGORIAS !</h2>
     <form>
-      <input type="number" id="idCat" placeholder="Ingrese ID" />
       <input type="text" id="nameCat" placeholder="Ingrese el nombre" />
-      <br />
-      <br />
-      <textarea
-        name="descripcion"
-        id="descripcion"
-        cols="25"
-        rows="6"
-        placeholder="Ingresar descripcion..."
-        style="resize: none"
-        required
+      <br>
+      <br>
+      <textarea name="descripcion" id="descripcionCat" cols="25" rows="6" placeholder="Ingresar descripcion..." style="resize: none"
+                required
       ></textarea>
     </form>
     <br />
     <button onclick="enviarCategoria()">Guardar</button>
-    <!--<button onclick="actualizarCategoria()">Actualizar</button>
-    <button onclick="buscarCategoria()">Buscar</button>     -->
     <button id="consultarCat" onclick="obtenerCategoria()">Consultar</button>
-    <br />
-    <br />
+    <br/>
+    <br/>
     <div id="listaCategoria"></div>
 
     <h2>CLIENTES !</h2>
     <form>
-      <input type="number" id="idCli" placeholder="Ingrese ID" />
       <input type="text" id="nameCli" placeholder="Ingrese el nombre" />
       <input type="text" id="emailCli" placeholder="Ingrese el correo" />
-      <input type="number" id="ageCli" placeholder="Ingrese la edad" />
+      <input type="text" id="ageCli" placeholder="Ingrese la edad" />
       <input type="text" id="pasCli" placeholder="Ingrese el password" />
     </form>
     <br />
@@ -117,21 +107,9 @@
 
     <h2>USUARIOS ADMINISTRATIVOS !</h2>
     <form>
-      <input
-        type="text"
-        id="nombreUsuarioAdmo"
-        placeholder="Ingrese su nombre"
-      />
-      <input
-        type="email"
-        id="emailUsuarioAdmo"
-        placeholder="Ingrese su correo electrónico"
-      />
-      <input
-        type="password"
-        id="passwordUsuarioAdmo"
-        placeholder="Ingrese su contraseña"
-      />
+      <input type="text" id="nombreUsuarioAdmo" placeholder="Ingrese su nombre"/>
+      <input type="text" id="emailUsuarioAdmo" placeholder="Ingrese su correo electrónico"/>
+      <input type="text" id="passwordUsuarioAdmo" placeholder="Ingrese su contraseña"/>
     </form>
     <br />
     <button onclick="guardarAdmoUser()">Guardar</button>
@@ -145,6 +123,7 @@
     <script src="js/client.js"></script>
     <script src="js/message.js"></script>
     <script src="js/userAdmin.js"></script>
+    <script src="js/category.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
 </html>

@@ -1,38 +1,36 @@
-const BASE_URL_CLI = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecloudapps.com/ords/admin/client/client';
-
 function obtenerCliente(){
     $.ajax({
-        url: BASE_URL_CLI,
+        url: 'http://localhost:8080/api/Client/all',
         type: "GET",
         dataType: "JSON",
         success: function(respuesta){
             console.log(respuesta);
-            mostrarClientes(respuesta.items);
+            mostrarClientes(respuesta);
         }
     });
 }
 
 function mostrarClientes(items){
-    $('#consultarCli').text('Ocultar');
-    $('#consultarCli').attr('onclick', 'limpiarTabla()');
+    $("#consultarCli").text('Ocultar');
+    $('#consultarCli').attr('onclick', 'ocultarRespuestaClient()');
 
     let myTable=
         `<table style="border: 1px solid black">
         <thead>
-            <th>ID</th>
-            <th>Nombre</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Edad</th>
         </thead>
         <tbody>`;
 
-    for(i=0; i<items.length; i++){
+    for(let i=0; i<items.length; i++){
         myTable += "<tr>";
-        myTable += "<td>" + items[i].id + "</td>";
         myTable += "<td>" + items[i].name + "</td>";
         myTable += "<td>" + items[i].email + "</td>";
         myTable += "<td>" + items[i].age + "</td>";
-        myTable += "<td> <button onclick='borrarCliente(" + items[i].id + ")'>Borrar</button>";
+
+        //myTable += "<td>" + items[i].message.name + "</td>";
+        //myTable += "<td>" + items[i].reservation.name "</td>";
         myTable += "<tr>";
     }
     myTable += "</tbody></table>";
@@ -41,28 +39,48 @@ function mostrarClientes(items){
     $("#listaClientes").append(myTable);
 }
 
+function ocultarRespuestaClient(){
+    $('#consultarCli').text('Consultar');
+    $('#consultarCli').attr('onclick', 'obtenerCliente()');
+    $("#listaClientes").empty();
+}
+
+
 function enviarCliente(){
     let dcliente = {
-        id: $("#idCli").val(),
-        name: $("#nameCli").val(),
+
         email: $("#emailCli").val(),
+        name: $("#nameCli").val(),
         age: $("#ageCli").val()
+
+        //category:{id:$("#categoryBici").val()},
+        //message:{id:$("#messageCli").val()}
     };
 
     let dataToSend = JSON.stringify(dcliente);
 
     $.ajax({
-        url: BASE_URL_CLI,
+        url: 'http://localhost:8080/api/Client/save',
         type: "POST",
         data: dataToSend,
         contentType: 'application/json',
-        success: function(respuesta){
+        success:function(respuesta){
+
+            $("#emailCli").val("");
+            $("#pasCli").val("");
+            $("#nameCli").val("");
+            $("#ageCli").val("");
+
             obtenerCliente();
+            alert("Se ha guardado el dato");
         }
     });
 }
 
-function actualizarCliente(){
+/**
+ *
+
+ function actualizarCliente(){
     let dCliente = {
         id: $("#idCli").val(),
         name: $("#nameCli").val(),
@@ -88,7 +106,7 @@ function actualizarCliente(){
     });
 }
 
-function borrarCliente(idCliente){
+ function borrarCliente(idCliente){
     let dCliente = {
         id:idCliente
     };
@@ -106,7 +124,7 @@ function borrarCliente(idCliente){
     });
 }
 
-function buscarCliente(){
+ function buscarCliente(){
     let dCliente = $("#idCli").val();
 
     $.ajax({
@@ -121,8 +139,10 @@ function buscarCliente(){
     });
 }
 
-function limpiarTabla(){
+
+ function limpiarTabla(){
     $('#consultarCli').text('Consultar');
     $('#consultarCli').attr('onclick', 'obtenerCliente()');
     $('#listaClientes').empty();
 }
+ */

@@ -2,12 +2,12 @@ const BASE_URL_ADMOUSER =''
 
 function getAdmoUser(){
     $.ajax({
-        url:BASE_URL_ADMOUSER,
+        url:'http://localhost:8080/api/Admin/all',
         type:"GET",
         dataType:"JSON",
         success: function(respuesta){
             console.log(respuesta);
-            pintarRespuestaAdmoUser(respuesta.items);
+            pintarRespuestaAdmoUser(respuesta);
         }
     })
 }
@@ -46,13 +46,13 @@ function guardarAdmoUser(){
     let myData={
         name:$("#nombreUsuarioAdmo").val(),
         email:$("#emailUsuarioAdmo").val(),
-        password:$("#passwordUsuarioAdmo").val(),
+        password:$("#passwordUsuarioAdmo").val()
     };
 
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_ADMOUSER,
+        url:'http://localhost:8080/api/Admin/save',
         type:"POST",
         data:dataToSend,
         contentType: 'application/json',
