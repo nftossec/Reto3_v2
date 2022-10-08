@@ -23,4 +23,14 @@ public class BikeController {
     public Bike postBike(@RequestBody Bike bike){
         return bikeService.save(bike);
     }
+    @PutMapping
+    public Bike putBike(@RequestBody Bike bike){
+        return bikeService.update(bike);
+    }
+
+    @DeleteMapping
+    public void deleteBike(@RequestBody Bike bike){
+        bikeService.delete(bike.getId());
+    }
+
 }

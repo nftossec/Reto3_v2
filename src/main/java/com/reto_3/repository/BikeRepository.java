@@ -24,4 +24,9 @@ public class BikeRepository {
     public Optional<Bike> getBike(Integer id){
         return bikeCrudRepository.findById(id);
     }
+
+    public void deleteBike(Integer id){
+        bikeCrudRepository.deleteById(id);
+    }
+
 }

@@ -38,8 +38,6 @@ public class Bike implements Serializable {
         this.year = year;
         this.description = description;
         this.category = category;
-        this.messages = messages;
-        this.reservations = reservations;
     }
 
     public Integer getId() {

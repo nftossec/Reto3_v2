@@ -34,7 +34,8 @@ function pintarRespuesta(items){
         myTable+="<td>"+items[i].category.name+"</td>";
         myTable+="<td>"+items[i].name+"</td>";
         myTable+="<td>"+items[i].description+"</td>";
-        //myTable+="<td> <button onclick='borrarElemento("+items[i].id+")'>Borrar</button>";
+        myTable+="<td> <button onclick='borrarElemento("+items[i].id+")'>Borrar</button>";
+        myTable+="<td> <button onclick='editarInformacion("+items[i]+")'>Editar</button>";
         myTable+="</tr>";
     }
     myTable+="</tbody></table>";
@@ -77,28 +78,21 @@ function guardarInformacion(){
     });
 }
 
-/*
- *
 
- function editarInformacion(){
-    let myData={
-        id:$("#idBici").val(),
-        brand:$("#brandBici").val(),
-        model:$("#modelBici").val(),
-        category_id:$("#categoryBici").val(),
-        name:$("#nameBici").val(),
-        description:$("#descriptionBike").val()
-    };
+ function editarInformacion(idElemento){
+
+     let myData={
+         id:idElemento
+     };
 
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE,
+        url:'http://localhost:8080/api/Bike',
         type:"PUT",
         data:dataToSend,
         contentType:"application/json",
         success:function(respuesta){
-            $("#idBici").val("");
             $("#brandBici").val("");
             $("#modelBici").val("");
             $("#categoryBici").val("");
@@ -118,7 +112,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:BASE_URL_BIKE,
+        url:'http://localhost:8080/api/Bike',
         type:"DELETE",
         data:dataToSend,
         contentType: "application/json",
@@ -128,4 +122,3 @@ function guardarInformacion(){
         }
     });
 }
- */

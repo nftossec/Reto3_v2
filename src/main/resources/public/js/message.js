@@ -1,5 +1,4 @@
 const BASE_URL_MSG = 'http://localhost:8080/api/Message';
-console.log("Holaaa");
 
 function leerMensajes(){
     $.ajax({
@@ -7,39 +6,41 @@ function leerMensajes(){
         type: 'GET',
         dataType: 'JSON',
         success: (res)=>{
-            console.log(res);
-            let mensajes = res;
-
-            $('#listaMensajes').empty();
-            $('#listaMensajes').append(
-                `<table id="tablaMensajes" style="border: 1px solid black">
-                    <thead>
-                        <th>Cliente</th>
-                        <th>Bicicleta</th>
-                        <th>Mensaje</th>
-                    </thead>
-                    <tbody></tbody>
-                </table>`
-            )
-
-            for(let i=0; i<mensajes.length; i++){
-                $('#tablaMensajes tbody').append(
-                    `<tr>
-                        <th>${mensajes[i].client.name}</th>
-                        <th>${mensajes[i].bike.name}</th>
-                        <td>${mensajes[i].messageText}</td>
-                    </tr>`
-                )
-            }
+            console.log('Mostrando mensajes...');
+            mostrarInfoMensajes(res);
         },
         error: (err)=>{
-            alert(`Error: Status ${err.status}`)
-        },
-        complete: ()=>{
-            $('#listarMensajes').text('Ocultar');
-            $('#listarMensajes').attr('onclick', 'ocultarMensajes()');
+            alert(`Error: Status ${err.status}`);
         }
     })
+}
+
+function mostrarInfoMensajes(res){
+    let mensajes = res;
+
+    $('#listaMensajes').empty();
+    $('#listaMensajes').append(
+        `<table id="tablaMensajes" style="border: 1px solid black">
+            <thead>
+                <th>Cliente</th>
+                <th>Bicicleta</th>
+                <th>Mensaje</th>
+            </thead>
+            <tbody></tbody>
+        </table>`
+    )
+
+    for(let i=0; i<mensajes.length; i++){
+        $('#tablaMensajes tbody').append(
+            `<tr>
+                <th>${mensajes[i].client.name}</th>
+                <th>${mensajes[i].bike.name}</th>
+                <td>${mensajes[i].messageText}</td>
+            </tr>`
+        )
+    }
+    $('#listarMensajes').text('Ocultar');
+    $('#listarMensajes').attr('onclick', 'ocultarMensajes()');
 }
 
 function ocultarMensajes(){
@@ -50,20 +51,21 @@ function ocultarMensajes(){
 
 function guardarMensaje(){
     $.ajax({
-        url: BASE_URL_MSG,
+        url: `${BASE_URL_MSG}/save`,
         type: 'POST',
         data: JSON.stringify({
-            id: countID+1,
-            messagetext: $('#mensaje').val()
+            messageText: $('#text-message').val(),
+            client: {idClient: $('#clientId-message').val()},
+            bike: {id: $('#bikeId-message').val()}
         }),
         contentType: 'application/json',
-        success: (res)=>console.log('Guardando mensaje...'),
+        success: (res)=> {
+            console.log('Guardando mensaje...');
+            clearMessage();
+            leerMensajes();
+        },
         error: (err)=>{
             alert(`Error: Status ${err.status}`)
-        },
-        complete: ()=>{
-            $('#mensaje').val("");
-            leerMensajes();
         }
     })
 }
@@ -112,6 +114,8 @@ function guardarMensaje(){
     })
 }*/
 
-function limpiar(){
-    $('#mensaje').val("");
+function clearMessage(){
+    $('#clientId-message').val('');
+    $('#bikeId-message').val('');
+    $('#text-message').val('');
 }

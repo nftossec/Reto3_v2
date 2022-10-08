@@ -20,7 +20,6 @@
     </form>
     <br />
     <button onclick="guardarInformacion()">Guardar</button>
-    <!--<button onclick="editarInformacion()">Actualizar</button> -->
     <button id="consultarBici" onclick="traerInformacion()">Consultar</button>
     <br />
     <br />
@@ -62,18 +61,17 @@
 
     <h2>MENSAJES !</h2>
     <input type="number" name="clientId-message" id="clientId-message" placeholder="ID del cliente">
-
-    <input type="text" name="bikeId-message" id="bikeId-message" placeholder="Nombre de la bicicleta">
+    <input type="number" name="bikeId-message" id="bikeId-message" placeholder="ID de la bicicleta">
     <br />
     <br />
     <textarea
-      name="mensaje"
-      id="mensaje"
-      cols="25"
-      rows="6"
-      placeholder="Ingresar mensaje..."
-      style="resize: none"
-      required
+            name="text-message"
+            id="text-message"
+            cols="25"
+            rows="6"
+            placeholder="Ingresar mensaje..."
+            style="resize: none"
+            required
     ></textarea>
     <br />
     <br />
@@ -81,27 +79,30 @@
     <button id="listarMensajes" onclick="leerMensajes()">Consultar</button>
     <br />
     <br />
-    <table id="listaMensajes" style="border: 1px solid black"></table>
+    <div id="listaMensajes"></div>
     <br />
     <br />
-
 
     <h2>RESERVAS !</h2>
-    <form>
-      <input type="number" name="clientId-reservation" id="clientId-reservation" placeholder="ID del cliente">
+    <div id="form-reservas">
+      <form>
+        <input type="number" name="clientId-reservation" id="clientId-reservation" placeholder="ID del cliente">
+        <input type="number" name="bikeId-reservation" id="bikeId-reservation" placeholder="ID de la bicicleta">
+        <br />
+        <br />
+        <label for="startDate-reservation">Fecha de inicio: </label>
+        <input type="date" name="startDate-reservation" id="startDate-reservation">
 
-      <input type="text" name="bikeName-reservation" id="bikeName-reservation" placeholder="Nombre de la bicicleta">
-      <br />
-      <br />
-      <label for="startDate-Rsva">Fecha de inicio: </label>
-      <input type="date" name="startDate-Rsva" id="startDate-Rsva">
-
-      <label for="devolutionDate-Rsva">Fecha de entrega: </label>
-      <input type="date" name="devolutionDate-Rsva" id="devolutionDate-Rsva">
-    </form>
+        <label for="devolutionDate-reservation">Fecha de entrega: </label>
+        <input type="date" name="devolutionDate-reservation" id="devolutionDate-reservation">
+      </form>
+    </div>
     <br />
-    <button id="save-btn-Rsva" onclick="saveReservation()">Guardar</button>
-    <button id="list-btn-Rsva" onclick="listReservations()">Consultar</button>
+    <button id="save-btn-reservation" onclick="saveReservation()">Guardar</button>
+    <button id="list-btn-reservation" onclick="listReservations()">Consultar</button>
+    <br />
+    <br />
+    <div id="reservationList"></div>
     <br />
     <br />
 
@@ -124,6 +125,8 @@
     <script src="js/message.js"></script>
     <script src="js/userAdmin.js"></script>
     <script src="js/category.js"></script>
+    <script src="js/score.js"></script>
+    <script src="js/reservation.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
 </html>

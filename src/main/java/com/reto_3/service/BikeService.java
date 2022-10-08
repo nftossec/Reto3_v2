@@ -5,6 +5,7 @@ import com.reto_3.repository.BikeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,20 +36,22 @@ public class BikeService {
 
     }
 
-    /*public Bike update(Bike bike){
-        if(bike.getIdReservation()!=null){
-            Optional<Bike> q = bikeRepository.getBike(bike.getIdReservation());
+    public Bike update(Bike bike){
+        if(bike.getId()!=null){
+            Optional<Bike> q = bikeRepository.getBike(bike.getId());
             if(q.isPresent()){
-                if(bike.getYear()!=null){
-                    q.get().setYear(bike.getYear());
+                Field[] fields = q.get().getClass().getDeclaredFields();
+                for (Field field: fields) {
+                    field.setAccessible(true);
+                    try {
+                        Object value=field.get(bike);
+                        if(value!=null){
+                            field.set(q.get(),value);
+                        }
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-                if(bike.getBrand()!=null){
-                    q.get().setBrand(bike.getBrand());
-                }
-                if(bike.getCategory()!=null){
-                    q.get().setCategory(bike.getCategory());
-                }
-
                 bikeRepository.save(q.get());
                 return q.get();
 
@@ -59,17 +62,16 @@ public class BikeService {
         }else {
             return bike;
         }
-    }*/
+    }
 
 
-    /*public boolean delete(int id){
+    public boolean delete(int id){
         Boolean flag=false;
         Optional<Bike> bike=bikeRepository.getBike(id);
         if(bike.isPresent()){
-            bikeRepository.delete(bike.get());
+            bikeRepository.deleteBike(bike.get().getId());
             flag=true;
         }
-
         return flag;
-    }*/
+    }
 }
