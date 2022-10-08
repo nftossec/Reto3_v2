@@ -2,7 +2,7 @@ const BASE_URL_BIKE = 'https://g0497c038904c6c-dbreto1.adb.us-ashburn-1.oraclecl
 
 function traerInformacion(){
     $.ajax({
-        url:'http://localhost:8080/api/Bike/all',
+        url:'api/Bike/all',
         type:"GET",
         dataType:"JSON",
         success: function(respuesta){
@@ -61,7 +61,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:'http://localhost:8080/api/Bike/save',
+        url:'api/Bike/save',
         type:"POST",
         data:dataToSend,
         contentType: 'application/json',
@@ -88,7 +88,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:'http://localhost:8080/api/Bike',
+        url:'api/Bike',
         type:"PUT",
         data:dataToSend,
         contentType:"application/json",
@@ -112,7 +112,7 @@ function guardarInformacion(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:'http://localhost:8080/api/Bike',
+        url:'api/Bike',
         type:"DELETE",
         data:dataToSend,
         contentType: "application/json",
