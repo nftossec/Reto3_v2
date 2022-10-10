@@ -1,4 +1,4 @@
-const BASE_URL_CAT = 'http://141.148.81.115/'
+const BASE_URL_CAT = 'http://141.148.81.115'
 function obtenerCategoria(){
     $.ajax({
         url: BASE_URL_CAT+'/api/Category/all',
