@@ -1,6 +1,7 @@
+
 function obtenerCategoria(){
     $.ajax({
-        url: 'http://localhost:8080/api/Category/all',
+        url: BASE_URL_BIKE+'/api/Category/all',
         type: "GET",
         dataType: "JSON",
         success: function(respuesta){
@@ -54,7 +55,7 @@ function enviarCategoria(){
     let dataToSend = JSON.stringify(dcategoria);
 
     $.ajax({
-        url: 'http://localhost:8080/api/Category/save',
+        url: BASE_URL_BIKE+'/api/Category/save',
         type: "POST",
         data: dataToSend,
         contentType: 'application/json',

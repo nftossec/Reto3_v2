@@ -1,8 +1,9 @@
-const BASE_URL_MSG = 'http://localhost:8080/api/Message';
+
+
 
 function leerMensajes(){
     $.ajax({
-        url: `${BASE_URL_MSG}/all`,
+        url: BASE_URL_BIKE+'api/Message/all',
         type: 'GET',
         dataType: 'JSON',
         success: (res)=>{
@@ -51,7 +52,7 @@ function ocultarMensajes(){
 
 function guardarMensaje(){
     $.ajax({
-        url: `${BASE_URL_MSG}/save`,
+        url: BASE_URL_BIKE+'/api/Message/save',
         type: 'POST',
         data: JSON.stringify({
             messageText: $('#text-message').val(),

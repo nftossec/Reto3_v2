@@ -1,8 +1,8 @@
-const BASE_URL_ADMOUSER =''
+const BASE_URL_ADMOUSER ='http://141.148.81.115/'
 
 function getAdmoUser(){
     $.ajax({
-        url:'http://localhost:8080/api/Admin/all',
+        url:BASE_URL_ADMOUSER +'/api/Admin/all',
         type:"GET",
         dataType:"JSON",
         success: function(respuesta){
@@ -52,7 +52,7 @@ function guardarAdmoUser(){
     let dataToSend=JSON.stringify(myData);
 
     $.ajax({
-        url:'http://localhost:8080/api/Admin/save',
+        url:BASE_URL_ADMOUSER+'/api/Admin/save',
         type:"POST",
         data:dataToSend,
         contentType: 'application/json',
