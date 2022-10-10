@@ -1,7 +1,7 @@
 
 function listReservations(){
     $.ajax({
-        url:BASE_URL_BIKE+'/api/Reservation/all',
+        url:'http://140.84.165.103/api/Reservation/all',
         type: 'GET',
         dataType: 'JSON',
         success: (res)=>{
@@ -61,7 +61,7 @@ function hideReservations(){
 
 function saveReservation(){
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Reservation/save',
+        url: 'http://140.84.165.103/api/Reservation/save',
         type: 'POST',
         data: JSON.stringify({
             startDate: $('#startDate-reservation').val(),

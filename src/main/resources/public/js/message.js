@@ -3,7 +3,7 @@
 
 function leerMensajes(){
     $.ajax({
-        url: BASE_URL_BIKE+'api/Message/all',
+        url: 'http://140.84.165.103/api/Message/all',
         type: 'GET',
         dataType: 'JSON',
         success: (res)=>{
@@ -52,7 +52,7 @@ function ocultarMensajes(){
 
 function guardarMensaje(){
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Message/save',
+        url: 'http://140.84.165.103/api/Message/save',
         type: 'POST',
         data: JSON.stringify({
             messageText: $('#text-message').val(),

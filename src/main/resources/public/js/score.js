@@ -1,4 +1,4 @@
-const BASE_URL_SCORE = 'http://141.148.81.115/api/Score/save';
+const BASE_URL_SCORE = 'http://140.84.165.103/api/Score/save';
 
 function loadScoreForm(idReservation){
     hideReservations();

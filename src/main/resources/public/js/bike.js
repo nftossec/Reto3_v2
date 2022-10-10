@@ -1,4 +1,4 @@
-const BASE_URL_BIKE = 'http://141.148.81.115/';
+const BASE_URL_BIKE = 'http://140.84.165.103/';
 
 function traerInformacion(){
     $.ajax({

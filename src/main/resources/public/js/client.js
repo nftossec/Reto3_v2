@@ -1,7 +1,7 @@
 
 function obtenerCliente(){
     $.ajax({
-        url: BASE_URL_BIKE +'/api/Client/all',
+        url: 'http://140.84.165.103/api/Client/all',
         type: "GET",
         dataType: "JSON",
         success: function(respuesta){
@@ -61,7 +61,7 @@ function enviarCliente(){
     let dataToSend = JSON.stringify(dcliente);
 
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Client/save',
+        url: 'http://140.84.165.103/api/Client/save',
         type: "POST",
         data: dataToSend,
         contentType: 'application/json',
