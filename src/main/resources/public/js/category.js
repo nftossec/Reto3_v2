@@ -1,7 +1,7 @@
-
+const BASE_URL_CAT = 'http://141.148.81.115/'
 function obtenerCategoria(){
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Category/all',
+        url: BASE_URL_CAT+'/api/Category/all',
         type: "GET",
         dataType: "JSON",
         success: function(respuesta){
@@ -55,7 +55,7 @@ function enviarCategoria(){
     let dataToSend = JSON.stringify(dcategoria);
 
     $.ajax({
-        url: BASE_URL_BIKE+'/api/Category/save',
+        url: BASE_URL_CAT+'/api/Category/save',
         type: "POST",
         data: dataToSend,
         contentType: 'application/json',
